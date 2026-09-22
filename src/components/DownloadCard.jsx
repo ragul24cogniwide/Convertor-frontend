@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { CheckCircle2, Download, Archive, Trash2, ArrowLeft, Clock } from 'lucide-react';
-import { deleteJob } from '../services/api';
+import { deleteJob, API_BASE } from '../services/api';
 
 export default function DownloadCard({ result, onReset }) {
   const [deleted, setDeleted] = useState(false);
@@ -9,7 +9,7 @@ export default function DownloadCard({ result, onReset }) {
   const isMultiFile = result.output_files && result.output_files.length > 1;
 
   const handleDownload = (zipAll = false) => {
-    const url = `/api/jobs/${result.job_id}/download${zipAll ? '?zip_all=true' : ''}`;
+    const url = `${API_BASE}/jobs/${result.job_id}/download${zipAll ? '?zip_all=true' : ''}`;
     window.location.href = url;
   };
 

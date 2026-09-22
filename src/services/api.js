@@ -3,7 +3,7 @@
  * Uses native Fetch API without external SaaS dependencies.
  */
 
-const API_BASE = import.meta.env.VITE_API_BASE_URL || '/api';
+export const API_BASE = (import.meta.env.VITE_API_BASE_URL || '/api').replace(/\/+$/, '');
 
 export async function fetchConversions() {
   const res = await fetch(`${API_BASE}/conversions`);

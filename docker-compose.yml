@@ -9,7 +9,7 @@ services:
     container_name: convertor-frontend
     restart: unless-stopped
     ports:
-      - "3000:80"
+      - "3221:80"
     networks:
       - convertor-net
 
